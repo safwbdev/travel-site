@@ -5,6 +5,7 @@ import App from './App.jsx'
 import './styles/global.scss'
 import './styles/footer-pages.scss'
 import './styles/pages.scss'
+import './styles/detail.scss'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
