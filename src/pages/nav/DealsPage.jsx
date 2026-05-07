@@ -23,7 +23,6 @@ function DealsPage({ onBack, onNav, onSearch }) {
 
     return (
         <>
-            {/* <style>{PAGES_CSS}</style> */}
             <NavBar onBack={onBack} onNav={onNav} activePage="deals" />
             <div className="pg-hero">
                 <div className="pg-hero-inner">

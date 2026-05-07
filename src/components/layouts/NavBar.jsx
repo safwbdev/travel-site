@@ -100,13 +100,6 @@ function NavBar({ onBack, onNav, activePage }) {
                         </button>
                     ))}
 
-                    {/* <div className="nav-drawer-divider" /> */}
-
-                    {/* Language + currency selector in drawer */}
-                    {/* <div style={{ padding: "4px 14px" }}>
-                        <LangCurrencySelector />
-                    </div> */}
-
                     <div className="nav-drawer-divider" />
 
                     {/* Auth buttons */}

@@ -44,22 +44,22 @@ function HomePage({ onSearch, onNav }) {
     function PopularDestIcon({ id }) {
         switch (true) {
             case id == "Bali":
-                return <GiPalmTree />
+                return <GiPalmTree style={{ color: "#0077cc" }} />
                 break;
             case id == "Bangkok":
-                return <MdTempleBuddhist />
+                return <MdTempleBuddhist style={{ color: "#0077cc" }} />
                 break;
             case id == "Tokyo":
-                return <GiSushis />
+                return <GiSushis style={{ color: "#0077cc" }} />
                 break;
             case id == "Singapore":
-                return <GiLion />
+                return <GiLion style={{ color: "#0077cc" }} />
                 break;
             case id == "Phuket":
-                return <GiBigWave />
+                return <GiBigWave style={{ color: "#0077cc" }} />
                 break;
             case id == "Seoul":
-                return <GiGiantSquid />
+                return <GiGiantSquid style={{ color: "#0077cc" }} />
                 break;
 
             default:
@@ -88,7 +88,7 @@ function HomePage({ onSearch, onNav }) {
                 <div className="section"><PromoBanner onSearch={onSearch} /></div>
                 <div className="section">
                     <div className="section-header">
-                        <h2 className="section-title"><FaFire /> {t("hotDeals")}</h2>
+                        <h2 className="section-title"><FaFire style={{ color: "#0077cc" }} /> {t("hotDeals")}</h2>
                         <span className="see-all" onClick={() => onNav("deals")}>{t("seeAllDeals")}</span>
                     </div>
                     <div className="deals-carousel-wrap">
@@ -97,9 +97,7 @@ function HomePage({ onSearch, onNav }) {
                             {DEALS.map(d => (
                                 <div key={d.id} className="deal-card" onClick={() => onSearch(d.action)}>
                                     <div className="deal-thumb" style={{ background: d.bg }}>
-                                        {/* <span style={{ fontSize: "3.2rem" }}> */}
                                         <img src={d.img} alt="" />
-                                        {/* </span> */}
                                         <span className="deal-tag">{d.tag}</span>
                                         <span className="deal-badge">-{disc(d.price, d.originalPrice)}% OFF</span>
                                     </div>
@@ -127,7 +125,7 @@ function HomePage({ onSearch, onNav }) {
                     </div>
                 </div>
                 <div className="section">
-                    <div className="section-header"><h2 className="section-title"><FaGlobeAsia /> {t("popularDest")}</h2><span className="see-all" onClick={() => onNav("deals")}>{t("exploreAll")}</span></div>
+                    <div className="section-header"><h2 className="section-title"><FaGlobeAsia style={{ color: "#0077cc" }} /> {t("popularDest")}</h2><span className="see-all" onClick={() => onNav("deals")}>{t("exploreAll")}</span></div>
                     <div className="popular-grid">
                         {POPULAR.map(c => (
                             <div key={c.city} className="city-card" onClick={() => onSearch({ type: "hotels", dest: c.city, checkin: "2026-04-20", checkout: "2026-04-25", rooms: "1 Room, 2 Guests" })}>
@@ -139,13 +137,13 @@ function HomePage({ onSearch, onNav }) {
                     </div>
                 </div>
                 <div className="section">
-                    <div className="section-header"><h2 className="section-title">{t("whyVoyago")}</h2></div>
+                    <div className="section-header"><h2 className="section-title">{t("whyVoyaqo")}</h2></div>
                     <div className="features-grid">
                         {[
-                            { icon: <FaRegCreditCard />, titleKey: "bestPrice", descKey: "bestPriceDesc" },
-                            { icon: <FaLock />, titleKey: "securePayments", descKey: "secureDesc" },
-                            { icon: <FaPhone />, titleKey: "support247", descKey: "supportDesc" },
-                            { icon: <FaBoltLightning />, titleKey: "instantConfirm", descKey: "instantDesc" },
+                            { icon: <FaRegCreditCard style={{ color: "#0077cc" }} />, titleKey: "bestPrice", descKey: "bestPriceDesc" },
+                            { icon: <FaLock style={{ color: "#0077cc" }} />, titleKey: "securePayments", descKey: "secureDesc" },
+                            { icon: <FaPhone style={{ color: "#0077cc" }} />, titleKey: "support247", descKey: "supportDesc" },
+                            { icon: <FaBoltLightning style={{ color: "#0077cc" }} />, titleKey: "instantConfirm", descKey: "instantDesc" },
                         ].map(f => (
                             <div key={f.titleKey} className="feature-card">
                                 <div className="feature-icon">{f.icon}</div>

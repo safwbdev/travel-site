@@ -18,7 +18,7 @@ function SupportPage({ onBack, onNav }) {
         { icon: <FaRegCreditCard />, title: "Payments & Refunds", desc: "Refund status, payment issues, and billing questions.", arrow: "→" },
         { icon: <FaPlane />, title: "Flight Issues", desc: "Delays, cancellations, seat selection, and baggage.", arrow: "→" },
         { icon: <FaHotel />, title: "Hotel Issues", desc: "Check-in problems, room issues, and special requests.", arrow: "→" },
-        { icon: <FaRegStar />, title: "Rewards & Miles", desc: "Earn, redeem, and manage your Voyago Miles.", arrow: "→" },
+        { icon: <FaRegStar />, title: "Rewards & Miles", desc: "Earn, redeem, and manage your Voyaqo Miles.", arrow: "→" },
         { icon: <FaLock />, title: "Account & Security", desc: "Login issues, password reset, and account settings.", arrow: "→" },
     ];
 
@@ -28,7 +28,6 @@ function SupportPage({ onBack, onNav }) {
 
     return (
         <>
-            {/* <style>{PAGES_CSS}</style> */}
             <NavBar onBack={onBack} onNav={onNav} activePage="support" />
             <div className="pg-hero">
                 <div className="pg-hero-inner">

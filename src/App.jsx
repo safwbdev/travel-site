@@ -1,11 +1,5 @@
 import { useRef } from 'react'
-
-/**
- * TODO
- * ====
- * - adjust css
-*/
-
+// Router 
 import {
   HashRouter,
   Routes,

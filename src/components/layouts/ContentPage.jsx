@@ -6,8 +6,6 @@ import Footer from './Footer.jsx';
 function ContentPage({ title, subtitle, tag, onBack, onNav, activePage, children }) {
     return (
         <>
-            {/* <style>{PAGES_CSS}</style> */}
-            {/* <style>{FOOTER_PAGES_CSS}</style> */}
             <NavBar
                 onBack={onBack}
                 onNav={onNav}

@@ -72,9 +72,7 @@ function BusResults({ search, onBack, onNewSearch, onSelectItem }) {
                         {list.map(b => (
                             <div key={b.id} className="result-card">
                                 <div className="rc-thumb" style={{ background: "linear-gradient(135deg,#fef9c3,#fde68a)" }}>
-                                    {/* <span> */}
                                     <img src={b.thumb} />
-                                    {/* </span> */}
                                     <span className="rc-badge-tl">{b.dep} → {b.arr}</span>
                                     <span className="rc-badge-bl">{b.type}</span>
                                 </div>
