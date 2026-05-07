@@ -1,0 +1,139 @@
+// autocompleteinput.jsx 
+.ac-wrap {
+    position: relative;
+    width: 100%;
+
+    .ac-input {
+        width: 100%;
+        border: 2px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 10px 14px 10px 36px;
+        font-size: .9rem;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--text);
+        background: #fff;
+        outline: none;
+        transition: border-color .2s;
+
+        &:focus {
+            border-color: var(--brand);
+        }
+    }
+
+    .ac-icon-left {
+        position: absolute;
+        left: 11px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: .95rem;
+        pointer-events: none;
+        line-height: 1;
+    }
+
+    .ac-clear {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--muted);
+        font-size: 1rem;
+        padding: 2px;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            color: var(--text);
+        }
+    }
+
+    .ac-dropdown {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: 2px solid var(--brand);
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(0, 100, 200, .18);
+        z-index: 999;
+        max-height: 280px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+    }
+
+    .ac-section-header {
+        padding: 6px 14px 2px;
+        font-size: .68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .07em;
+        color: var(--brand);
+        background: var(--brand-light);
+    }
+
+    .ac-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        cursor: pointer;
+        transition: background .15s;
+        border-radius: 0;
+
+        &:first-child {
+            border-radius: 10px 10px 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 10px 10px;
+        }
+
+        &:hover,
+        &.active {
+            background: var(--brand-light);
+        }
+
+        .ac-item-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            width: 22px;
+            text-align: center;
+        }
+
+        .ac-item-text {
+            display: flex;
+            flex-direction: column;
+
+            .ac-item-label {
+                font-size: .875rem;
+                font-weight: 600;
+                color: var(--text);
+            }
+
+            .ac-item-sub {
+                font-size: .72rem;
+                color: var(--muted);
+            }
+        }
+    }
+
+    .ac-no-results {
+        padding: 14px;
+        text-align: center;
+        color: var(--muted);
+        font-size: .85rem;
+    }
+}

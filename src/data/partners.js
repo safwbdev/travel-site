@@ -1,0 +1,18 @@
+export const PARTNERS_LIST = [
+    { logo: "airasia", name: "AirAsia", type: "Airline Partner", tier: "Platinum" },
+    { logo: "mas", name: "Malaysia Airlines", type: "Airline Partner", tier: "Platinum" },
+    { logo: "sa", name: "Singapore Airlines", type: "Airline Partner", tier: "Gold" },
+    { logo: "ja", name: "Japan Airlines", type: "Airline Partner", tier: "Gold" },
+    { logo: "marriot", name: "Marriott Bonvoy", type: "Hotel Partner", tier: "Platinum" },
+    { logo: "hilton", name: "Hilton", type: "Hotel Partner", tier: "Platinum" },
+    { logo: "ihg", name: "IHG Hotels", type: "Hotel Partner", tier: "Gold" },
+    { logo: "accor", name: "Accor Hotels", type: "Hotel Partner", tier: "Gold" },
+    { logo: "hertz", name: "Hertz", type: "Car Rental Partner", tier: "Platinum" },
+    { logo: "avis", name: "Avis", type: "Car Rental Partner", tier: "Gold" },
+    { logo: "royal", name: "Royal Caribbean", type: "Cruise Partner", tier: "Platinum" },
+    { logo: "nor", name: "Norwegian Cruise", type: "Cruise Partner", tier: "Gold" },
+    { logo: "visa", name: "Visa", type: "Payment Partner", tier: "Platinum" },
+    { logo: "mastercard", name: "Mastercard", type: "Payment Partner", tier: "Platinum" },
+    { logo: "grab", name: "GrabPay", type: "E-Wallet Partner", tier: "Gold" },
+    { logo: "tng", name: "Touch 'n Go", type: "E-Wallet Partner", tier: "Gold" },
+];
