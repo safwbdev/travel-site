@@ -9,7 +9,14 @@ import { CPrice, PriceFilterSection, SkeletonList, NoResults } from '../../compo
 import { ResultsShell } from '../../components/layouts';
 // Data 
 import { TRAIN_DB } from '../../data/trains.js';
-import { FaRegCalendarDays, FaRegClock, FaTicket, FaTrain, FaUser } from 'react-icons/fa6';
+// Icons
+import {
+    FaRegCalendarDays,
+    FaRegClock,
+    FaTicket,
+    FaTrain,
+    FaUser
+} from 'react-icons/fa6';
 
 function TrainResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [sort, setSort] = useState("recommended");
@@ -17,11 +24,19 @@ function TrainResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [clsF, setClsF] = useState([]);
     const [trainTypes, setTrainTypes] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const t = useT();
-    useEffect(() => { setLoading(true); const t2 = setTimeout(() => setLoading(false), 900); return () => clearTimeout(t2); }, [search]);
+
+    useEffect(() => {
+        setLoading(true);
+        const t2 = setTimeout(() => setLoading(false), 900);
+        return () => clearTimeout(t2);
+    }, [search]);
+
     const base = useMemo(() => TRAIN_DB.filter(tr => {
         return matchCity(search.from, t.from) && matchCity(search.to, t.to);
     }), [search.from, search.to]);
+
     const list = useMemo(() => {
         let r = [...base];
         if (clsF.length) r = r.filter(tr => clsF.includes(tr.class));
@@ -33,9 +48,18 @@ function TrainResults({ search, onBack, onNewSearch, onSelectItem }) {
         if (sort === "rating") r.sort((a, b) => b.rating - a.rating);
         return r;
     }, [base, clsF, trainTypes, maxP, sort]);
+
     const toggleC = c => setClsF(p => p.includes(c) ? p.filter(x => x !== c) : [...p, c]);
+
     const toggleT = t => setTrainTypes(p => p.includes(t) ? p.filter(x => x !== t) : [...p, t]);
-    const clear = () => { setClsF([]); setTrainTypes([]); setMaxP(300); setSort("recommended"); };
+
+    const clear = () => {
+        setClsF([]);
+        setTrainTypes([]);
+        setMaxP(300);
+        setSort("recommended");
+    };
+
     return (
         <ResultsShell search={search} onBack={onBack} onNewSearch={onNewSearch}
             breadcrumb={[t("trains"), `${search.from} → ${search.to}`]}

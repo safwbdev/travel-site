@@ -1,16 +1,37 @@
 import { useState, useEffect, useMemo } from 'react'
 // Lang
-import { useT, useCurrency } from '../../i18n/index.js'
+import {
+    useT,
+    useCurrency
+} from '../../i18n/index.js'
 // Utils
-import { disc, fmtD, nights } from '../../utils/formatters.js';
+import {
+    disc,
+    fmtD,
+    nights
+} from '../../utils/formatters.js';
 import { matchCity } from '../../utils/matchCity.js';
 // Components 
-import { CPrice, PriceFilterSection, SkeletonList, NoResults } from '../../components/ui';
+import {
+    CPrice,
+    PriceFilterSection,
+    SkeletonList,
+    NoResults,
+    CarLogo
+} from '../../components/ui';
 import { ResultsShell } from '../../components/layouts';
 // Data 
 import { CAR_DB } from '../../data/cars.js';
-import { FaBuilding, FaCar, FaFilter, FaGear, FaLocationDot, FaRegCalendarDays, FaSuitcaseRolling, FaUser } from 'react-icons/fa6';
-import CarLogo from '../../components/ui/CarLogo.jsx';
+import {
+    FaBuilding,
+    FaCar,
+    FaFilter,
+    FaGear,
+    FaLocationDot,
+    FaRegCalendarDays,
+    FaSuitcaseRolling,
+    FaUser
+} from 'react-icons/fa6';
 
 
 
@@ -20,13 +41,22 @@ function CarResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [types, setTypes] = useState([]);
     const [fcOnly, setFc] = useState(false);
     const [loading, setLoading] = useState(true);
+
     const t = useT();
-    useEffect(() => { setLoading(true); const t2 = setTimeout(() => setLoading(false), 900); return () => clearTimeout(t2); }, [search]);
+
+    useEffect(() => {
+        setLoading(true);
+        const t2 = setTimeout(() => setLoading(false), 900);
+        return () => clearTimeout(t2);
+    }, [search]);
+
     const rentalDays = nights(search.pickDate, search.retDate);
+
     const base = useMemo(() => {
         if (search.carType === "Any") return CAR_DB;
         return CAR_DB.filter(c => c.type === search.carType);
     }, [search.carType]);
+
     const list = useMemo(() => {
         let r = [...base];
         if (types.length) r = r.filter(c => types.includes(c.type));
@@ -37,8 +67,11 @@ function CarResults({ search, onBack, onNewSearch, onSelectItem }) {
         if (sort === "rating") r.sort((a, b) => b.rating - a.rating);
         return r;
     }, [base, types, fcOnly, maxP, sort]);
+
     const toggleT = t => setTypes(p => p.includes(t) ? p.filter(x => x !== t) : [...p, t]);
+
     const clear = () => { setTypes([]); setFc(false); setMaxP(600); setSort("recommended"); };
+
     return (
         <ResultsShell search={search} onBack={onBack} onNewSearch={onNewSearch}
             breadcrumb={[t("carRental"), search.pickup]}

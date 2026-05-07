@@ -1,15 +1,35 @@
 import { useState, useEffect, useMemo } from 'react'
 // Lang
-import { useT, useCurrency } from '../../i18n/index.js'
+import {
+    useT,
+    useCurrency
+} from '../../i18n/index.js'
 // Utils
-import { disc, fmtD } from '../../utils/formatters.js';
+import {
+    disc,
+    fmtD
+} from '../../utils/formatters.js';
 import { matchCity } from '../../utils/matchCity.js';
 // Components 
-import { CPrice, PriceFilterSection, SkeletonList, NoResults, AirlineLogo } from '../../components/ui';
+import {
+    CPrice,
+    PriceFilterSection,
+    SkeletonList,
+    NoResults,
+    AirlineLogo
+} from '../../components/ui';
 import { ResultsShell } from '../../components/layouts';
 // Data 
 import { FLIGHT_DB } from '../../data/flights.js';
-import { FaArrowTurnDown, FaChair, FaPlane, FaRegCalendarDays, FaSuitcaseRolling, FaUser } from 'react-icons/fa6';
+// Icons
+import {
+    FaArrowTurnDown,
+    FaChair,
+    FaPlane,
+    FaRegCalendarDays,
+    FaSuitcaseRolling,
+    FaUser
+} from 'react-icons/fa6';
 
 
 function FlightResults({ search, onBack, onNewSearch, onSelectItem }) {
@@ -19,12 +39,21 @@ function FlightResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [stops, setStops] = useState([]);
     const [clsF, setClsF] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const t = useT();
-    useEffect(() => { setLoading(true); const t2 = setTimeout(() => setLoading(false), 900); return () => clearTimeout(t2); }, [search]);
+
+    useEffect(() => {
+        setLoading(true);
+        const t2 = setTimeout(() => setLoading(false), 900);
+        return () => clearTimeout(t2);
+    }, [search]);
+
     const base = useMemo(() => FLIGHT_DB.filter(f => {
         return matchCity(search.from, f.from) && matchCity(search.to, f.to || "");
     }), [search.from, search.to]);
+
     const allAirlines = [...new Set(FLIGHT_DB.map(f => f.airline))];
+
     const list = useMemo(() => {
         let r = [...base];
         if (airlines.length) r = r.filter(f => airlines.includes(f.airline));
@@ -36,12 +65,19 @@ function FlightResults({ search, onBack, onNewSearch, onSelectItem }) {
         if (sort === "rating") r.sort((a, b) => b.rating - a.rating);
         return r;
     }, [base, airlines, stops, clsF, maxP, sort]);
+
     const toggleA = a => setAirlines(p => p.includes(a) ? p.filter(x => x !== a) : [...p, a]);
+
     const toggleS = s => setStops(p => p.includes(s) ? p.filter(x => x !== s) : [...p, s]);
+
     const toggleC = c => setClsF(p => p.includes(c) ? p.filter(x => x !== c) : [...p, c]);
+
     const clear = () => { setAirlines([]); setStops([]); setClsF([]); setMaxP(2000); setSort("recommended"); };
+
     const chips = [<><FaPlane />{` ${search.from} → ${search.to}`}</>, <><FaRegCalendarDays />{` ${fmtD(search.dep)}`}</>, <><FaUser />{` ${search.pax}`}</>, <><FaChair />{` ${search.cls}`}</>];
+
     if (search.ret) chips.splice(2, 0, <><FaArrowTurnDown style={{ transform: 'rotate(90deg)' }} />{` ${fmtD(search.ret)}`}</>);
+
     return (
         <ResultsShell search={search} onBack={onBack} onNewSearch={onNewSearch}
             breadcrumb={[t("flights"), `${search.from} → ${search.to}`]}

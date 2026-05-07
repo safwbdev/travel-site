@@ -1,11 +1,30 @@
 import { useState, useEffect, useMemo } from 'react'
-import { useT, useLang, useCurrency } from '../../i18n/index.js'
+// Lang 
+import {
+    useT,
+    useLang,
+    useCurrency
+} from '../../i18n/index.js'
+// Utils
 import { paxLabel } from '../../utils/paxLabel.js';
-import AutocompleteInput from '../ui/AutocompleteInput.jsx';
+// Components
+import { AutocompleteInput } from '../ui';
 import PaxPicker from './PaxPicker.jsx';
-import { AIRPORT_LIST, TRANSFER_DESTINATIONS } from '../../data/autocomplete.js';
-import { FaBuilding, FaHotel, FaLocationDot, FaPlane, FaRegCalendarDays, FaRegClock } from 'react-icons/fa6';
+// Data
+import {
+    AIRPORT_LIST,
+    TRANSFER_DESTINATIONS
+} from '../../data/autocomplete.js';
+// Icons
 import { FaUserFriends } from 'react-icons/fa';
+import {
+    FaBuilding,
+    FaHotel,
+    FaLocationDot,
+    FaPlane,
+    FaRegCalendarDays,
+    FaRegClock
+} from 'react-icons/fa6';
 
 function TransferForm({ onSearch, initial = {} }) {
     const [airport, setAirport] = useState(initial.airport || "");

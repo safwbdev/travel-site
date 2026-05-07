@@ -1,10 +1,24 @@
 import { useState, useEffect, useMemo } from 'react'
-import { useT, useLang, useCurrency } from '../../i18n/index.js'
+// Lang 
+import {
+    useT,
+    useLang,
+    useCurrency
+} from '../../i18n/index.js'
+// Utils 
 import { paxLabel } from '../../utils/paxLabel.js';
 import PaxPicker from './PaxPicker.jsx';
-import AutocompleteInput from '../ui/AutocompleteInput.jsx';
+// Components 
+import { AutocompleteInput } from '../ui';
+// Data
 import { TRAIN_STATIONS } from '../../data/autocomplete.js';
-import { FaRegCalendarDays, FaTicket, FaTrain, FaUser } from 'react-icons/fa6';
+// Icons
+import {
+    FaRegCalendarDays,
+    FaTicket,
+    FaTrain,
+    FaUser
+} from 'react-icons/fa6';
 
 function TrainForm({ onSearch, initial = {} }) {
     const [from, setFrom] = useState(initial.from || "");

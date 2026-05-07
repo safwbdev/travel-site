@@ -82,7 +82,10 @@ function HotelDetailPage({ hotel, search, onBack, onBackToResults }) {
     }, [lbOpen]);
 
     // Lock body scroll when lightbox open
-    useEffect(() => { document.body.style.overflow = lbOpen ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [lbOpen]);
+    useEffect(() => {
+        document.body.style.overflow = lbOpen ? "hidden" : "";
+        return () => { document.body.style.overflow = ""; };
+    }, [lbOpen]);
 
     const photoLabels = ["Exterior", "Pool Area", "Dining", "Lobby", "Guest Room", "View", "Gardens", "Spa & Wellness"];
 

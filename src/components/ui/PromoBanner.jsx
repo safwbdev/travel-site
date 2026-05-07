@@ -7,7 +7,11 @@ import { PROMOS, PROMOS_T } from '../../constants/promos.js';
 function PromoBanner({ onSearch }) {
     const [idx, setIdx] = useState(0);
     const t = useT();
-    useEffect(() => { const t = setInterval(() => setIdx(i => (i + 1) % PROMOS.length), 4000); return () => clearInterval(t); }, []);
+
+    useEffect(() => {
+        const t = setInterval(() => setIdx(i => (i + 1) % PROMOS.length), 4000);
+        return () => clearInterval(t);
+    }, []);
 
     const p = PROMOS_T[idx];
     const handleCta = () => { if (onSearch && p.action?.params) onSearch(p.action.params); };

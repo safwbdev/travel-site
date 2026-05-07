@@ -17,7 +17,9 @@ function AutocompleteInput({ value, onChange, options, placeholder, icon, onSele
         ).slice(0, 8);
     }, [value, options]);
 
-    useEffect(() => { setCursor(-1); }, [filtered]);
+    useEffect(() => {
+        setCursor(-1);
+    }, [filtered]);
 
     useEffect(() => {
         const handler = (e) => {

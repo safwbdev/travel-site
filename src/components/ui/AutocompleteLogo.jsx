@@ -1,9 +1,25 @@
 
+// Icons 
 import { TbBrandMercedes } from "react-icons/tb";
 import { GiLion } from "react-icons/gi";
-import { FaAnchor, FaCar, FaHotel, FaPlane, FaShip, FaSignHanging, FaTrain } from 'react-icons/fa6';
-import { SiAirasia, SiJapanairlines, SiSingaporeairlines } from "react-icons/si";
-import { FaGlobeAsia, FaShuttleVan } from "react-icons/fa";
+import {
+    FaAnchor,
+    FaCar,
+    FaHotel,
+    FaPlane,
+    FaShip,
+    FaSignHanging,
+    FaTrain
+} from 'react-icons/fa6';
+import {
+    SiAirasia,
+    SiJapanairlines,
+    SiSingaporeairlines
+} from "react-icons/si";
+import {
+    FaGlobeAsia,
+    FaShuttleVan
+} from "react-icons/fa";
 
 function AutocompleteLogo({ id }) {
     switch (true) {

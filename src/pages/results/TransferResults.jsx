@@ -1,27 +1,57 @@
 import { useState, useEffect, useMemo } from 'react'
 // Lang
-import { useT, useCurrency } from '../../i18n/index.js'
+import {
+    useT,
+    useCurrency
+} from '../../i18n/index.js'
 // Utils
-import { disc, fmtD, nights } from '../../utils/formatters.js';
+import {
+    disc,
+    fmtD,
+    nights
+} from '../../utils/formatters.js';
 import { matchCity } from '../../utils/matchCity.js';
 // Components 
-import { CPrice, PriceFilterSection, SkeletonList, NoResults } from '../../components/ui';
+import {
+    CPrice,
+    PriceFilterSection,
+    SkeletonList,
+    NoResults,
+    CarLogo
+} from '../../components/ui';
 import { ResultsShell } from '../../components/layouts';
 // Data 
 import { TRANSFER_DB } from '../../data/transfer.js';
-import { FaBuilding, FaPlane, FaRegCalendarDays, FaRegClock, FaUser } from 'react-icons/fa6';
-import { FaClock, FaUserFriends } from 'react-icons/fa';
-import CarLogo from '../../components/ui/CarLogo.jsx';
+// Icons 
+import {
+    FaClock,
+    FaUserFriends
+} from 'react-icons/fa';
+import {
+    FaBuilding,
+    FaPlane,
+    FaRegCalendarDays,
+    FaRegClock,
+    FaUser
+} from 'react-icons/fa6';
 
 function TransferResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [sort, setSort] = useState("recommended");
     const [maxP, setMaxP] = useState(500);
     const [vTypes, setVTypes] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const t = useT();
-    useEffect(() => { setLoading(true); const t2 = setTimeout(() => setLoading(false), 900); return () => clearTimeout(t2); }, [search]);
+
+    useEffect(() => {
+        setLoading(true);
+        const t2 = setTimeout(() => setLoading(false), 900);
+        return () => clearTimeout(t2);
+    }, [search]);
+
     const paxNum = parseInt(search.pax) || 2;
     const base = useMemo(() => TRANSFER_DB.filter(tr => tr.maxPax >= Math.min(paxNum, 2)), [paxNum]);
+
     const list = useMemo(() => {
         let r = [...base];
         if (vTypes.length) r = r.filter(tr => vTypes.includes(tr.type));
@@ -31,8 +61,11 @@ function TransferResults({ search, onBack, onNewSearch, onSelectItem }) {
         if (sort === "rating") r.sort((a, b) => b.rating - a.rating);
         return r;
     }, [base, vTypes, maxP, sort]);
+
     const toggleV = v => setVTypes(p => p.includes(v) ? p.filter(x => x !== v) : [...p, v]);
+
     const clear = () => { setVTypes([]); setMaxP(500); setSort("recommended"); };
+
     return (
         <ResultsShell search={search} onBack={onBack} onNewSearch={onNewSearch}
             breadcrumb={[t("airportTransfer"), `${search.airport} → ${search.dest}`]}

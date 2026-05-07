@@ -1,11 +1,20 @@
 import { useState, useEffect, useMemo } from 'react'
 // Lang
-import { useCurrency, useT } from '../i18n';
+import {
+    useCurrency,
+    useT
+} from '../i18n';
 // Utils
 import { disc } from '../utils/formatters';
 // Components
-import { NavBar, Footer } from '../components/layouts';
-import { PromoBanner, LangCurrencySelector } from '../components/ui';
+import {
+    NavBar,
+    Footer
+} from '../components/layouts';
+import {
+    PromoBanner,
+    LangCurrencySelector
+} from '../components/ui';
 import {
     HotelForm, CarForm,
     FlightForm,
@@ -13,18 +22,36 @@ import {
     CruiseForm,
     TrainForm,
     BusForm,
+    TabIcon,
 } from '../components/search';
 import CPrice from '../components/ui/CPrice';
 // Data 
 import { DEALS, POPULAR } from '../data/home';
 // constants
 import { TABS } from '../constants/tabs';
-import { FaRegCreditCard, FaLock, FaPhone, FaBoltLightning, FaFire, FaGifts, FaLocationDot, FaGooglePlay, FaApple } from 'react-icons/fa6';
+import {
+    FaRegCreditCard,
+    FaLock,
+    FaPhone,
+    FaBoltLightning,
+    FaFire,
+    FaGifts,
+    FaLocationDot,
+    FaGooglePlay,
+    FaApple
+} from 'react-icons/fa6';
 import { FaGlobeAsia } from 'react-icons/fa';
-import { GiBigWave, GiGiantSquid, GiLion, GiPalmTree, GiSushis } from "react-icons/gi";
-import { MdOutlinePhoneIphone, MdTempleBuddhist } from "react-icons/md";
-import TabIcon from '../components/search/TabIcon';
-
+import {
+    GiBigWave,
+    GiGiantSquid,
+    GiLion,
+    GiPalmTree,
+    GiSushis
+} from "react-icons/gi";
+import {
+    MdOutlinePhoneIphone,
+    MdTempleBuddhist
+} from "react-icons/md";
 
 function HomePage({ onSearch, onNav }) {
     const [activeTab, setActiveTab] = useState("hotels");

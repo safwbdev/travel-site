@@ -1,15 +1,35 @@
 import { useState, useEffect, useMemo } from 'react'
 // Lang
-import { useT, useCurrency } from '../../i18n/index.js'
+import {
+    useT,
+    useCurrency
+} from '../../i18n/index.js'
 // Utils
-import { disc, fmtD, nights } from '../../utils/formatters.js';
+import {
+    disc,
+    fmtD,
+    nights
+} from '../../utils/formatters.js';
 import { matchCity } from '../../utils/matchCity.js';
 // Components 
-import { CPrice, PriceFilterSection, SkeletonList, NoResults } from '../../components/ui';
+import {
+    CPrice,
+    PriceFilterSection,
+    SkeletonList,
+    NoResults
+} from '../../components/ui';
 import { ResultsShell } from '../../components/layouts';
 // Data 
 import { BUS_DB } from '../../data/buses.js';
-import { FaBus, FaBusSimple, FaChair, FaRegClock, FaSignHanging, FaUser } from 'react-icons/fa6';
+// Icons
+import {
+    FaBus,
+    FaBusSimple,
+    FaChair,
+    FaRegClock,
+    FaSignHanging,
+    FaUser
+} from 'react-icons/fa6';
 
 
 function BusResults({ search, onBack, onNewSearch, onSelectItem }) {
@@ -18,12 +38,21 @@ function BusResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [busTypes, setBusTypes] = useState([]);
     const [operators, setOperators] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const t = useT();
-    useEffect(() => { setLoading(true); const t2 = setTimeout(() => setLoading(false), 900); return () => clearTimeout(t2); }, [search]);
+
+    useEffect(() => {
+        setLoading(true);
+        const t2 = setTimeout(() => setLoading(false), 900);
+        return () => clearTimeout(t2);
+    }, [search]);
+
     const base = useMemo(() => BUS_DB.filter(b => {
         return matchCity(search.from, b.from) && matchCity(search.to, b.to);
     }), [search.from, search.to]);
+
     const allOps = [...new Set(BUS_DB.map(b => b.operator))];
+
     const list = useMemo(() => {
         let r = [...base];
         if (busTypes.length) r = r.filter(b => busTypes.includes(b.type));
@@ -34,9 +63,17 @@ function BusResults({ search, onBack, onNewSearch, onSelectItem }) {
         if (sort === "dep") r.sort((a, b) => a.dep.localeCompare(b.dep));
         return r;
     }, [base, busTypes, operators, maxP, sort]);
+
     const toggleBT = t => setBusTypes(p => p.includes(t) ? p.filter(x => x !== t) : [...p, t]);
     const toggleOp = o => setOperators(p => p.includes(o) ? p.filter(x => x !== o) : [...p, o]);
-    const clear = () => { setBusTypes([]); setOperators([]); setMaxP(200); setSort("recommended"); };
+
+    const clear = () => {
+        setBusTypes([]);
+        setOperators([]);
+        setMaxP(200);
+        setSort("recommended");
+    }
+        ;
     return (
         <ResultsShell search={search} onBack={onBack} onNewSearch={onNewSearch}
             breadcrumb={[t("buses"), `${search.from} → ${search.to}`]}

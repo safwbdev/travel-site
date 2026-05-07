@@ -44,7 +44,7 @@ function RewardsPage({ onBack, onNav }) {
                         <div className="rhc-tier"><FaMedal style={{ color: "#ef9d3a" }} /> {t("goldMember")}</div>
                         <div className="rhc-name">Steve's Account</div>
                         <div className="rhc-points">{totalPts.toLocaleString()}</div>
-                        <div className="rhc-pts-label">{t("voyagoMiles")}</div>
+                        <div className="rhc-pts-label">{t("VoyaqoMiles")}</div>
                         <div className="rhc-progress-wrap">
                             <div className="rhc-progress-label">
                                 <span>Gold</span><span>{nextTier.toLocaleString()} pts → Platinum</span>
@@ -79,7 +79,7 @@ function RewardsPage({ onBack, onNav }) {
                 {/* Redeem rewards */}
                 <div className="pg-section">
                     <div className="pg-section-title">{<><FaGifts /> {t("redeemMiles")}</>}</div>
-                    <div className="pg-section-sub">{t("youHave")} <strong style={{ color: "var(--brand)" }}>4,250 {t("voyagoMiles")}</strong> {t("milesAvailable")}</div>
+                    <div className="pg-section-sub">{t("youHave")} <strong style={{ color: "var(--brand)" }}>4,250 {t("VoyaqoMiles")}</strong> {t("milesAvailable")}</div>
                     <div className="rewards-list">
                         {REWARD_ITEMS.map((r, i) => (
                             <div key={i} className="reward-item" style={{ opacity: r.available ? 1 : .6 }}>
@@ -98,7 +98,7 @@ function RewardsPage({ onBack, onNav }) {
                     <div className="pg-section-title">{<><FaRectangleList /> {t("milesHistory")}</>}</div>
                     <div style={{ background: "#fff", borderRadius: 14, boxShadow: "var(--shadow)", overflow: "hidden" }}>
                         <table className="history-table">
-                            <thead><tr><th>{t("dateLabel")}</th><th>{t("descLabel")}</th><th style={{ textAlign: "right" }}>{t("voyagoMiles")}</th></tr></thead>
+                            <thead><tr><th>{t("dateLabel")}</th><th>{t("descLabel")}</th><th style={{ textAlign: "right" }}>{t("VoyaqoMiles")}</th></tr></thead>
                             <tbody>
                                 {HISTORY.map((h, i) => (
                                     <tr key={i}>

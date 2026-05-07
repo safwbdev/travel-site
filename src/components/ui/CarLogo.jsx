@@ -1,7 +1,14 @@
-import { SiBmw, SiHonda, SiHyundai, SiMitsubishi, SiToyota } from 'react-icons/si';
+// Icons 
 import { TbBrandMercedes } from "react-icons/tb";
 import { GiLion } from "react-icons/gi";
 import { FaCar } from 'react-icons/fa6';
+import {
+    SiBmw,
+    SiHonda,
+    SiHyundai,
+    SiMitsubishi,
+    SiToyota
+} from 'react-icons/si';
 
 function CarLogo({ id }) {
     switch (true) {

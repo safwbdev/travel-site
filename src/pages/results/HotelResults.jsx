@@ -19,11 +19,19 @@ function HotelResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [bfOnly, setBf] = useState(false);
     const [fcOnly, setFc] = useState(false);
     const [loading, setLoading] = useState(true);
+
     const t = useT();
 
-    useEffect(() => { setLoading(true); const t2 = setTimeout(() => setLoading(false), 900); return () => clearTimeout(t2); }, [search]);
+    useEffect(() => {
+        setLoading(true);
+        const t2 = setTimeout(() => setLoading(false), 900);
+        return () => clearTimeout(t2);
+    }, [search]);
+
     const n = nights(search.checkin, search.checkout);
+
     const base = useMemo(() => HOTEL_DB.filter(h => matchCity(search.dest, h.city)), [search.dest]);
+
     const list = useMemo(() => {
         let r = [...base];
         if (stars.length) r = r.filter(h => stars.includes(h.stars));
@@ -37,9 +45,13 @@ function HotelResults({ search, onBack, onNewSearch, onSelectItem }) {
         if (sort === "stars") r.sort((a, b) => b.stars - a.stars);
         return r;
     }, [base, stars, amens, bfOnly, fcOnly, maxP, sort]);
+
     const toggleStar = s => setStars(p => p.includes(s) ? p.filter(x => x !== s) : [...p, s]);
+
     const toggleAmen = a => setAmens(p => p.includes(a) ? p.filter(x => x !== a) : [...p, a]);
+
     const clear = () => { setStars([]); setAmens([]); setBf(false); setFc(false); setMaxP(1000); setSort("recommended"); };
+
     return (
         <ResultsShell search={search} onBack={onBack} onNewSearch={onNewSearch}
             breadcrumb={[t("hotels"), search.dest]}

@@ -1,5 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
-import { useT, useLang, useCurrency } from '../../i18n/index.js'
+// Lang 
+import {
+    useT,
+    useLang,
+    useCurrency
+} from '../../i18n/index.js'
+// Icons
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 
 function NoResults({ label = "No results found", tip = "" }) {

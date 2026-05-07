@@ -1,8 +1,20 @@
 import { useState, useEffect, useMemo } from 'react'
-import { useT, useLang, useCurrency } from '../../i18n/index.js'
-import AutocompleteInput from '../ui/AutocompleteInput.jsx';
+// Lang 
+import {
+    useT,
+    useLang,
+    useCurrency
+} from '../../i18n/index.js'
+// Components 
+import { AutocompleteInput } from '../ui';
+// Data 
 import { CAR_LOCATIONS } from '../../data/autocomplete.js';
-import { FaCar, FaLocationDot, FaRegCalendarDays } from 'react-icons/fa6';
+// Icons 
+import {
+    FaCar,
+    FaLocationDot,
+    FaRegCalendarDays
+} from 'react-icons/fa6';
 
 function CarForm({ onSearch, initial = {} }) {
     const [pickup, setPickup] = useState(initial.pickup || "");
@@ -10,8 +22,11 @@ function CarForm({ onSearch, initial = {} }) {
     const [pickDate, setPickDate] = useState(initial.pickDate || "2026-04-20");
     const [retDate, setRetDate] = useState(initial.retDate || "2026-04-25");
     const [carType, setCarType] = useState(initial.carType || "Any");
+
     const t = useT();
+
     const go = () => { if (!pickup.trim()) { alert("Please enter a pick-up location."); return; } onSearch({ type: "cars", pickup: pickup.trim(), dropoff: dropoff.trim() || pickup.trim(), pickDate, retDate, carType }); };
+
     return (
         <div className="search-grid car-grid">
             <div className="field-group">

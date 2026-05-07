@@ -1,8 +1,16 @@
 
+// Icons 
 import { TbBrandMercedes } from "react-icons/tb";
 import { GiLion } from "react-icons/gi";
-import { FaCar, FaPlane } from 'react-icons/fa6';
-import { SiAirasia, SiJapanairlines, SiSingaporeairlines } from "react-icons/si";
+import {
+    FaCar,
+    FaPlane
+} from 'react-icons/fa6';
+import {
+    SiAirasia,
+    SiJapanairlines,
+    SiSingaporeairlines
+} from "react-icons/si";
 
 function AirlineLogo({ id }) {
     switch (true) {

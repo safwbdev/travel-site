@@ -1,16 +1,37 @@
 import { useState, useEffect, useMemo } from 'react'
 // Lang
-import { useT, useCurrency } from '../../i18n/index.js'
+import {
+    useT,
+    useCurrency
+} from '../../i18n/index.js'
 // Utils
-import { disc, fmtD, nights } from '../../utils/formatters.js';
+import {
+    disc,
+    fmtD,
+    nights
+} from '../../utils/formatters.js';
 import { matchCity } from '../../utils/matchCity.js';
 // Components 
-import { CPrice, PriceFilterSection, SkeletonList, NoResults } from '../../components/ui';
+import {
+    CPrice,
+    PriceFilterSection,
+    SkeletonList,
+    NoResults
+} from '../../components/ui';
 import { ResultsShell } from '../../components/layouts';
 // Data 
 import { CRUISE_DB } from '../../data/cruises.js';
-import { FaAnchor, FaMoon, FaRegCalendarDays, FaShip } from 'react-icons/fa6';
-import { FaGlobeAsia, FaUserFriends } from 'react-icons/fa';
+// Icons
+import {
+    FaAnchor,
+    FaMoon,
+    FaRegCalendarDays,
+    FaShip
+} from 'react-icons/fa6';
+import {
+    FaGlobeAsia,
+    FaUserFriends
+} from 'react-icons/fa';
 
 function CruiseResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [sort, setSort] = useState("recommended");
@@ -18,8 +39,15 @@ function CruiseResults({ search, onBack, onNewSearch, onSelectItem }) {
     const [cruiseTypes, setCruiseTypes] = useState([]);
     const [lines, setLines] = useState([]);
     const [loading, setLoading] = useState(true);
+
     const t = useT();
-    useEffect(() => { setLoading(true); const t2 = setTimeout(() => setLoading(false), 1000); return () => clearTimeout(t2); }, [search]);
+
+    useEffect(() => {
+        setLoading(true);
+        const t2 = setTimeout(() => setLoading(false), 1000);
+        return () => clearTimeout(t2);
+    }, [search]);
+
     const base = useMemo(() => CRUISE_DB.filter(c => {
         const portMatch = matchCity(search.port, c.from);
         const destMatch = !search.dest || !search.dest.trim() || matchCity(search.dest, c.to);
@@ -27,7 +55,9 @@ function CruiseResults({ search, onBack, onNewSearch, onSelectItem }) {
         const durMatch = durMap[search.duration] ?? true;
         return portMatch && destMatch && durMatch;
     }), [search.port, search.dest, search.duration]);
+
     const allLines = [...new Set(CRUISE_DB.map(c => c.line))];
+
     const list = useMemo(() => {
         let r = [...base];
         if (cruiseTypes.length) r = r.filter(c => cruiseTypes.includes(c.type));
@@ -39,9 +69,13 @@ function CruiseResults({ search, onBack, onNewSearch, onSelectItem }) {
         if (sort === "nights") r.sort((a, b) => a.nights - b.nights);
         return r;
     }, [base, cruiseTypes, lines, maxP, sort]);
+
     const toggleCT = t => setCruiseTypes(p => p.includes(t) ? p.filter(x => x !== t) : [...p, t]);
+
     const toggleL = l => setLines(p => p.includes(l) ? p.filter(x => x !== l) : [...p, l]);
+
     const clear = () => { setCruiseTypes([]); setLines([]); setMaxP(5000); setSort("recommended"); };
+
     return (
         <ResultsShell search={search} onBack={onBack} onNewSearch={onNewSearch}
             breadcrumb={[t("cruises"), search.port]}

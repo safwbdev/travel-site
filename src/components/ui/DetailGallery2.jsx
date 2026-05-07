@@ -15,7 +15,11 @@ function DetailGallery({ photos, gradients }) {
         document.addEventListener("keydown", h);
         return () => document.removeEventListener("keydown", h);
     }, [lbOpen]);
-    useEffect(() => { document.body.style.overflow = lbOpen ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [lbOpen]);
+
+    useEffect(() => {
+        document.body.style.overflow = lbOpen ? "hidden" : "";
+        return () => { document.body.style.overflow = ""; };
+    }, [lbOpen]);
 
     const bg = (i) => gradients[i % gradients.length];
     return (

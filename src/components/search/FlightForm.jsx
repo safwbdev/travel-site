@@ -1,10 +1,20 @@
 import { useState, useEffect, useMemo } from 'react'
+// Lang 
 import { useT, useLang, useCurrency } from '../../i18n/index.js'
 import { paxLabel } from '../../utils/paxLabel.js';
-import AutocompleteInput from '../ui/AutocompleteInput.jsx';
+// Components
+import { AutocompleteInput } from '../ui';
 import PaxPicker from './PaxPicker.jsx';
+// Data
 import { FLIGHT_LOCATIONS } from '../../data/autocomplete.js';
-import { FaChair, FaPlaneArrival, FaPlaneDeparture, FaRegCalendarDays, FaUser } from 'react-icons/fa6';
+// Icons
+import {
+    FaChair,
+    FaPlaneArrival,
+    FaPlaneDeparture,
+    FaRegCalendarDays,
+    FaUser
+} from 'react-icons/fa6';
 
 function FlightForm({ onSearch, initial = {} }) {
     const [tripType, setTripType] = useState(initial.tripType || "roundtrip");
