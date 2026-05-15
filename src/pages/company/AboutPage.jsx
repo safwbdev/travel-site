@@ -29,8 +29,8 @@ function AboutPage({ onBack, onNav }) {
 
             <div className="cp-section">
                 <h2>{t("whoWeAre")}</h2>
-                <p>Voyago was founded in 2018 with a simple belief: booking travel should be as exciting as the trip itself. Born in Penang, Malaysia, we set out to build Southeast Asia's most comprehensive travel super-app — one that handles every element of your journey from the moment you decide to go until you return home.</p>
-                <p>Today, Voyago serves over 12 million travellers across 50 countries, offering hotels, flights, car rentals, airport transfers, buses, trains, and cruises — all in a single, seamlessly integrated platform. We're powered by a passionate team of 800+ across Penang, Kuala Lumpur, Singapore, Jakarta, and Bangkok.</p>
+                <p>Voyaqo was founded in 2018 with a simple belief: booking travel should be as exciting as the trip itself. Born in Penang, Malaysia, we set out to build Southeast Asia's most comprehensive travel super-app — one that handles every element of your journey from the moment you decide to go until you return home.</p>
+                <p>Today, Voyaqo serves over 12 million travellers across 50 countries, offering hotels, flights, car rentals, airport transfers, buses, trains, and cruises — all in a single, seamlessly integrated platform. We're powered by a passionate team of 800+ across Penang, Kuala Lumpur, Singapore, Jakarta, and Bangkok.</p>
             </div>
 
             <div className="cp-section">
@@ -41,11 +41,11 @@ function AboutPage({ onBack, onNav }) {
                         ["2019", "Launched hotel and flight booking. Reached 100,000 registered users within the first year."],
                         ["2020", "Pivoted to support travel recovery during the pandemic. Introduced flexible booking and free cancellation guarantees."],
                         ["2021", "Expanded to car rental and airport transfers. Series B funding of MYR 45M closed."],
-                        ["2022", "Added buses, trains, and cruises. Launched the Voyago Miles loyalty programme."],
+                        ["2022", "Added buses, trains, and cruises. Launched the Voyaqo Miles loyalty programme."],
                         ["2023", "Crossed 5 million registered users. Expanded to Indonesia, Thailand, and the Philippines."],
                         ["2024", "Launched AI-powered trip planning assistant. Partnered with 200+ airlines and 50,000+ hotels."],
                         ["2025", "Hit 12 million users. Named Southeast Asia's Best Travel Platform at the Asia Travel Awards."],
-                        ["2026", "Launching Voyago for Business — corporate travel management for teams of all sizes."],
+                        ["2026", "Launching Voyaqo for Business — corporate travel management for teams of all sizes."],
                     ].map(([y, t], i) => (
                         <div key={i} className="tl-item">
                             <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0, width: 14 }}>
@@ -89,7 +89,7 @@ function AboutPage({ onBack, onNav }) {
             <div className="cp-section">
                 <h2>{t("ourOffices")}</h2>
                 <div className="info-card-grid">
-                    {[["🇲🇾", "Penang HQ", "1 Jalan Sultan Ahmad Shah, George Town, 10050 Penang"], ["🇲🇾", "Kuala Lumpur", "Level 28, Menara KLCC, KLCC, 50088 Kuala Lumpur"], ["🇸🇬", "Singapore", "1 Marina Boulevard, #28-00, 018989 Singapore"], ["🇮🇩", "Jakarta", "Jl. Jend. Sudirman Kav. 54, Jakarta 12190"], ["🇹🇭", "Bangkok", "87/2 CRC Tower, All Seasons Place, Bangkok 10330"], [<FaEnvelope />, "Global", "contact@voyago.com · +60 4-222 8888"]].map(([ic, ci, ad]) => (
+                    {[["🇲🇾", "Penang HQ", "1 Jalan Sultan Ahmad Shah, George Town, 10050 Penang"], ["🇲🇾", "Kuala Lumpur", "Level 28, Menara KLCC, KLCC, 50088 Kuala Lumpur"], ["🇸🇬", "Singapore", "1 Marina Boulevard, #28-00, 018989 Singapore"], ["🇮🇩", "Jakarta", "Jl. Jend. Sudirman Kav. 54, Jakarta 12190"], ["🇹🇭", "Bangkok", "87/2 CRC Tower, All Seasons Place, Bangkok 10330"], [<FaEnvelope />, "Global", "contact@voyaqo.com · +60 4-222 8888"]].map(([ic, ci, ad]) => (
                         <div key={ci} className="info-card"><div className="ic-icon">{ic}</div><div className="ic-title">{ci}</div><div className="ic-text">{ad}</div></div>
                     ))}
                 </div>

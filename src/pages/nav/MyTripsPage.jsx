@@ -30,7 +30,7 @@ function MyTripsPage({ onBack, onNav }) {
                     {[
                         { icon: <FaPlane />, labelKey: "totalTrips", value: "8", subKey: "allTime" },
                         { icon: <FaGlobe />, labelKey: "countries", value: "6", subKey: "visited" },
-                        { icon: <FaRegStar />, labelKey: "rewardPoints", value: "4,250", sub: "Voyago Miles" },
+                        { icon: <FaRegStar />, labelKey: "rewardPoints", value: "4,250", sub: "Voyaqo Miles" },
                     ].map(s => (
                         <div key={s.labelKey} style={{ background: "#fff", borderRadius: 14, boxShadow: "var(--shadow)", padding: "20px 24px", textAlign: "center" }}>
                             <div style={{ fontSize: "2rem", marginBottom: 8 }}>{s.icon}</div>
