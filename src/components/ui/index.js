@@ -1,6 +1,7 @@
 import AirlineLogo from "./AirlineLogo";
 import AuthModal from "./AuthModal";
 import AutocompleteInput from "./AutocompleteInput";
+import CarLogo from "./CarLogo";
 import CPrice from "./CPrice";
 import DetailGallery from "./DetailGallery2";
 import PriceFilterSection from "./FilterSection";
@@ -11,8 +12,8 @@ import PromoBanner from "./PromoBanner";
 import SkeletonList from "./SkeletonList";
 
 
-
 export {
+    CarLogo,
     AuthModal,
     AutocompleteInput,
     DetailGallery,
